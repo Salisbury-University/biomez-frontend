@@ -1,0 +1,41 @@
+.Home-page {
+    padding-top: 100px ;
+}
+
+.link {
+    list-style: none;
+    color: rgb(67, 170, 196);
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+p {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: medium;
+}
+
+.Title {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.Web-attributes {
+    padding-right: 11in;
+    padding-top: 10pt;
+    font-size: larger;
+    font-weight: 600;
+}
+
+
+
+img {
+    border-radius: 20%;
+    max-width: 60%;
+    height: auto;
+    width: 70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+
+}
+

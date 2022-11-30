@@ -1,0 +1,111 @@
+.NavbarItems {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    background-color: #090e5a;
+    padding: 0 25px;
+    width: 98%;
+    height: 80px;
+    border-radius: 8px;
+    border-color: black;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+
+.title1 {
+    font-style: Bold;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 100;
+}
+
+.nav-menu{
+    display: grid;
+    grid-template-columns: repeat(6,auto);
+    grid-gap :10px;
+    list-style: none;
+    align-items: center;
+    text-align: center;
+    justify-content: end;
+    padding-right: 175pt;
+}
+
+a {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: none;
+    color: rgba(4, 4, 10, 0.692);
+    
+}
+.home:hover {
+    background: rgb(240, 236, 236);
+    transition: all 0.2s ease-in-out;
+    border-radius: 6px;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.explore:hover {
+    background: rgb(240, 236, 236);
+    transition: all 0.2s ease-in-out;
+    border-radius: 6px;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.aboutus:hover {
+    background: rgb(240, 236, 236);
+    transition: all 0.2s ease-in-out;
+    border-radius: 6px;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+input {
+    height: 40px;
+    border-radius: 8px;
+    padding-right: 10pt;
+    font-size: large;
+    font-family:Verdana, Geneva, Tahoma, sans-serif
+
+    
+}
+
+.search {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+
+
+.Icon {
+    font-size:xx-large;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    color:rgba(140, 190, 194, 0.815);
+}
+
+.home {
+    padding-right: 20pt;
+    justify-content: space-between;
+    color:rgba(140, 190, 194, 0.815);
+}
+
+.explore {
+    padding-right: 20pt;
+    justify-content: space-between;
+    color:rgba(140, 190, 194, 0.815);
+}
+
+.aboutus {
+    padding-right: 20pt;
+    justify-content: space-between;
+    color:rgba(140, 190, 194, 0.815);
+}

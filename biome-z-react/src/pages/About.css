@@ -1,0 +1,49 @@
+.About-Page {
+    padding-top: 100px ;
+}
+
+.container {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: medium;
+    font-weight: 400;
+}
+
+.about-us {
+    padding-right: 12in;
+    font-size: x-large;
+}
+
+.bio-pic {
+    border-radius: 20%;
+    max-width: 60%;
+    height: auto;
+    width: 15%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    float: center;
+}
+
+.bio-name {
+    
+    text-align: justify;
+    text-justify: inter-word;
+    
+    
+}
+
+.bio-pic3 {
+    border-radius: 20%;
+    max-width: 60%;
+    height: auto;
+    width: 15%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    float: center;
+    
+}
+
+h1 {
+    color:rgba(140, 190, 194, 0.815)
+}

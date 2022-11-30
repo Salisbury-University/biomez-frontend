@@ -1,0 +1,15 @@
+body{
+  background-color: rgba(218, 222, 226, 0.568);
+}
+
+.container {
+  margin: 1rem;
+  text-align: center;
+  
+}
+
+.divScroll {
+  overflow:auto;
+  height: 14in;
+}
+
