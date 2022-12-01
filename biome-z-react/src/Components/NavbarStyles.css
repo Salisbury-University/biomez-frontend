@@ -67,12 +67,12 @@ a {
     padding-bottom: 20px;
 }
 input {
-    height: 40px;
+    height: 50px;
     border-radius: 8px;
     padding-right: 10pt;
     font-size: large;
-    font-family:Verdana, Geneva, Tahoma, sans-serif
-
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    border:none;
     
 }
 
@@ -84,13 +84,6 @@ input {
 
 
 
-.Icon {
-    font-size:xx-large;
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    color:rgba(140, 190, 194, 0.815);
-}
 
 .home {
     padding-right: 20pt;
@@ -109,3 +102,19 @@ input {
     justify-content: space-between;
     color:rgba(140, 190, 194, 0.815);
 }
+
+
+.Icon {
+    font-size:x-large;
+    color:rgba(140, 190, 194, 0.815);
+    position:absolute;
+    right: 8px;
+    top:10px
+}
+
+form {
+    background: grey;
+    border-radius: 40px;
+    position: relative;
+}
+
