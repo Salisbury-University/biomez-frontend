@@ -3,6 +3,7 @@ import Navbar from "./Components/Navbar";
 import AboutPage from "./pages/About"
 import HomePage from "./pages/Home"
 import ExplorePage from "./pages/Explore"
+import SearchPage from "./pages/Search"
 import { Route, Routes } from "react-router-dom"
 export default function App()
 {
@@ -20,6 +21,7 @@ export default function App()
           <Route path="/Home" element={<HomePage />}/>
           <Route path="/About" element={<AboutPage />}/>
           <Route path="/Explore" element={<ExplorePage />}/>
+          <Route path="/Search" element={<SearchPage />}/>
       </Routes>
    
       </div>
