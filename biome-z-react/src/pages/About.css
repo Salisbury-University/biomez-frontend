@@ -2,11 +2,7 @@
     padding-top: 100px ;
 }
 
-.container {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: medium;
-    font-weight: 400;
-}
+
 
 .about-us {
     padding-right: 12in;
@@ -15,35 +11,40 @@
 
 .bio-pic {
     border-radius: 20%;
-    max-width: 60%;
+    max-width: auto;
     height: auto;
     width: 15%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    float: center;
+    float: left;
+
+
+
 }
 
 .bio-name {
-    
-    text-align: center;
-    text-justify: inter-word;
-    
-    
+    text-align: left;
+    width: 40%;
+    padding-top: 2.5in;
+     
 }
 
-.bio-pic3 {
-    border-radius: 20%;
-    max-width: 60%;
-    height: auto;
-    width: 15%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    float: center;
-    
-}
+
+
 
 h1 {
-    color:rgba(140, 190, 194, 0.815)
+    color: rgb(67, 170, 196);
+    font-family: 'Times New Roman', Times, serif;
 }
+
+.link {
+    text-align: left;
+    
+}
+
+.Biome-z-vid {
+    float: right;
+}
+
+iframe {
+    border-radius: 10%;
+}
+
