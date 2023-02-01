@@ -4,7 +4,7 @@ import { ImEarth } from "react-icons/im";
 import { CgProfile } from 'react-icons/cg';
 import {GiMagnifyingGlass} from 'react-icons/gi';
 import { Link } from "react-router-dom"
-import SearchBar from "./SearchBar"
+
 
 function Navbar () {
        
@@ -26,14 +26,14 @@ function Navbar () {
                 
             </ul>
                
-                <div className = "search" >
+                <Link className = "search" to = "Search" >
                     <form>
                         
                         <input type ="text" placeholder = "Search ....." />
                         <i className="Icon"><GiMagnifyingGlass/></i>
                     </form>
                         
-                </div>
+                </Link>
                
             </nav>
         );

@@ -20,6 +20,7 @@ export default function App()
       
       <div className="container">
       <Routes>
+          <Route path="/" element={<HomePage />}/>
           <Route path="/Home" element={<HomePage />}/>
           <Route path="/About" element={<AboutPage />}/>
           <Route path="/Explore" element={<ExplorePage />}/>
