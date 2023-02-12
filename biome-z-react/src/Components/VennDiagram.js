@@ -57,10 +57,10 @@ export default class VennDiagram extends Component {
   render() {
     let vennOptions = {
       title: {
-        text: 'biopsychosocial (BPS) model',
+        text: 'EXPLORE',
       },
       chart: {
-        backgroundColor: '#fff',
+          backgroundColor: '#5496ff',
         borderWidth: 2,
         borderColor: '#fff',
         borderRadius: 20,

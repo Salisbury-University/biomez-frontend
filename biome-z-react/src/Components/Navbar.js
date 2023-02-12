@@ -29,7 +29,7 @@ function Navbar () {
                 <Link className = "search" to = "Search" >
                     <form>
                         
-                        <input type ="text" placeholder = "Search ....." />
+                        <input type ="text" placeholder = "  Search the database" />
                         <i className="Icon"><GiMagnifyingGlass/></i>
                     </form>
                         

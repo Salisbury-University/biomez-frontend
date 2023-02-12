@@ -3,13 +3,13 @@
     justify-content: space-between;
     align-items: center;
     font-size: 1.2rem;
-    background-color: #090e5a;
-    padding: 0 25px;
+    background: linear-gradient(to bottom, #1f98ff, #4998db);
+    padding: 10px;
     width: 98%;
     height: 80px;
     border-radius: 8px;
     border-color: black;
-    position:absolute;
+    position: absolute;
     left: 50%;
     transform: translate(-50%);
 }
@@ -17,8 +17,10 @@
 
 .title1 {
     font-style: Bold;
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: 100;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 10;
+    font-size: 35px;
+    color: white;
 }
 
 .nav-menu{
@@ -35,11 +37,11 @@
 a {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-decoration: none;
-    color: rgba(4, 4, 10, 0.692);
-    
+    color: white;
 }
+
 .home:hover {
-    background: rgb(240, 236, 236);
+    color: white;
     transition: all 0.2s ease-in-out;
     border-radius: 6px;
     padding-right: 30px;
@@ -48,7 +50,7 @@ a {
     padding-bottom: 20px;
 }
 .explore:hover {
-    background: rgb(240, 236, 236);
+    color: white;
     transition: all 0.2s ease-in-out;
     border-radius: 6px;
     padding-right: 30px;
@@ -58,7 +60,7 @@ a {
 }
 
 .aboutus:hover {
-    background: rgb(240, 236, 236);
+    color: white;
     transition: all 0.2s ease-in-out;
     border-radius: 6px;
     padding-right: 30px;
@@ -73,17 +75,12 @@ input {
     font-size: large;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     border:none;
-    
 }
 
 .search {
     display: flex;
     justify-content: space-between;
-    
 }
-
-
-
 
 .home {
     padding-right: 20pt;
@@ -105,11 +102,11 @@ input {
 
 
 .Icon {
-    font-size:x-large;
-    color:rgba(140, 190, 194, 0.815);
-    position:absolute;
+    font-size: x-large;
+    color: white;
+    position: absolute;
     right: 8px;
-    top:10px
+    top: 10px
 }
 
 form {

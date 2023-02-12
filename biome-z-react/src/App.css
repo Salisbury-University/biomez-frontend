@@ -1,15 +1,36 @@
-body{
-  background-color: rgba(218, 222, 226, 0.568);
+body {
+    background: linear-gradient(to right, #90ee90, #87cefa);
 }
 
 .container {
-  margin: 1rem;
-  text-align: center;
-  
+    margin: 10px;
+    text-align: center;
+    width: 100%;
 }
 
 .divScroll {
   overflow:auto;
   height: 14in;
+  width: 100%;
 }
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
 

@@ -8,9 +8,7 @@ import Footer from "./Components/Footer";
 import { Route, Routes } from "react-router-dom"
 export default function App()
 {
-  // localhost:3000/
 
-  // TEST //
   return(
     
     <div  className="divScroll" >
