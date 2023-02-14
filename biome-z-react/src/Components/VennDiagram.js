@@ -60,9 +60,9 @@ export default class VennDiagram extends Component {
         text: 'EXPLORE',
       },
       chart: {
-          backgroundColor: '#5496ff',
+        backgroundColor: '#ffff',
         borderWidth: 2,
-        borderColor: '#fff',
+        borderColor: '#000000',
         borderRadius: 20,
         className: '',
         animation: true,

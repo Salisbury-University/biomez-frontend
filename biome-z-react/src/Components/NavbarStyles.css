@@ -1,6 +1,6 @@
-.NavbarItems {
+.navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     font-size: 1.2rem;
     background: linear-gradient(to bottom, #1f98ff, #4998db);
@@ -12,106 +12,50 @@
     position: absolute;
     left: 50%;
     transform: translate(-50%);
+    margin-top: 10px;
 }
 
-
-.title1 {
-    font-style: Bold;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-weight: 10;
-    font-size: 35px;
-    color: white;
-}
-
-.nav-menu{
-    display: grid;
-    grid-template-columns: repeat(6,auto);
-    grid-gap :10px;
+.navbar-nav {
+    display: flex;
     list-style: none;
-    align-items: center;
-    text-align: center;
-    justify-content: end;
-    padding-right: 175pt;
+    margin: 0;
+    padding: 0;
 }
 
-a {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+.nav-item {
+    margin-top: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    margin-left: 230px;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.nav-link {
+    color: #fff;
     text-decoration: none;
-    color: white;
+    padding: 15px 25px;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
 }
 
-.home:hover {
-    color: white;
-    transition: all 0.2s ease-in-out;
-    border-radius: 6px;
-    padding-right: 30px;
-    padding-left: 30px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-.explore:hover {
-    color: white;
-    transition: all 0.2s ease-in-out;
-    border-radius: 6px;
-    padding-right: 30px;
-    padding-left: 30px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+.nav-link:hover {
+   background-color: #fff;
+   color: #333;
+   border-radius: 8px;
 }
 
-.aboutus:hover {
-    color: white;
-    transition: all 0.2s ease-in-out;
-    border-radius: 6px;
-    padding-right: 30px;
-    padding-left: 30px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
 input {
     height: 50px;
     border-radius: 8px;
     padding-right: 10pt;
     font-size: large;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    border:none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: none;
 }
 
 .search {
+    margin-top: 10px;
     display: flex;
     justify-content: space-between;
 }
-
-.home {
-    padding-right: 20pt;
-    justify-content: space-between;
-    color:rgba(140, 190, 194, 0.815);
-}
-
-.explore {
-    padding-right: 20pt;
-    justify-content: space-between;
-    color:rgba(140, 190, 194, 0.815);
-}
-
-.aboutus {
-    padding-right: 20pt;
-    justify-content: space-between;
-    color:rgba(140, 190, 194, 0.815);
-}
-
-
-.Icon {
-    font-size: x-large;
-    color: white;
-    position: absolute;
-    right: 8px;
-    top: 10px
-}
-
-form {
-    background: grey;
-    border-radius: 40px;
-    position: relative;
-}
-
