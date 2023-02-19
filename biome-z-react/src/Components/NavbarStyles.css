@@ -1,3 +1,18 @@
+.navbar ul {
+    display: flex;
+    align-items: stretch; /* Default */
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    display: block;
+    flex: 0 1 auto; /* Default */
+    list-style-type: none;
+}
+
 .navbar {
     display: flex;
     align-items: center;
@@ -24,7 +39,6 @@
     margin-top: 10px;
     margin-right: 10px;
     padding: 10px;
-    margin-left: 230px;
    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 

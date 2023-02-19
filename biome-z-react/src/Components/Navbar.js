@@ -8,20 +8,21 @@ function Navbar() {
 
         <nav className="navbar">
 
-            <div className="webIcon">
-                <img src={websiteIcon} alt="Icon" style={{ position: 'absolute', top: -6, left: 10, width: 120, height: 120}} />
-            </div>
-
             <ul className="navbar-nav">
+                <li className="nav-item">
+                    <div className="webIcon">
+                        <img src={websiteIcon} alt="Icon" style={{ position: 'absolute', top: -6, left: 10, width: 120, height: 120 }} />
+                    </div>
+                </li>
                 <li className="nav-item">
                     <a href="Home" className="nav-link">
                         HOME
-          </a>
+                    </a>
                 </li>
                 <li className="nav-item">
                     <a href="Explore" className="nav-link">
                         EXPLORE
-          </a>
+                     </a>
                 </li>
                 <li className="nav-item">
                     <a href="About" className="nav-link">
