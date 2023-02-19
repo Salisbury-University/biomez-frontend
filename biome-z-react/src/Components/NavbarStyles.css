@@ -1,6 +1,5 @@
 .navbar {
     display: flex;
-    justify-content: flex-start;
     align-items: center;
     font-size: 1.2rem;
     background: linear-gradient(to bottom, #1f98ff, #4998db);
@@ -10,8 +9,7 @@
     border-radius: 8px;
     border-color: black;
     position: absolute;
-    left: 50%;
-    transform: translate(-50%);
+    left: .5rem;
     margin-top: 10px;
 }
 

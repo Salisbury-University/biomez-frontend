@@ -9,14 +9,7 @@ function HomePage() {
 
             <main className="main">
                 <p className="large-text"> OVERVIEW </p>
-                <p className="small-text"> Biome-Z (Biopsychosocial Index of Microbiome Ecologies - Zotero) is an interactive research tool that categorizes information using the BPSE Framework.
-                Explore the database <a className="link-text" href="/Explore"> here </a> or use the search bar to find a specific category or article. The BPSE Framework sorts specific research data into meaningful subtopics (Biological, Psychological and Social Evironments), making it simple to find obscure articles.
-                 </p>
-            </main>
-
-            <main className="videoPlayer">
-                <iframe title="vimeo-player" src="https://player.vimeo.com/video/501597571?h=629fee29e7" width="1300" height="600" frameborder="0" allowfullscreen="true"></iframe>
-                <p className="video-text"> How Does The Framework Work? </p>
+                <p className="small-text"> BIOME-z (pronounced "biomes") is a pilot project to index microbiome-related scientific literature from across the disciplines (representing humans, animals, natural and built environments), organized in a biopsychosocial ecological framework (Maier & al'Absi, 2017). The aim is to facilitate interdisciplinary research on the microbiome and health that reflects the broad ecological/interconnected nature of microbiomes. </p>
             </main>
 
             <main className="main">
