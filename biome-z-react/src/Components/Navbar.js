@@ -23,17 +23,13 @@ function Navbar () {
                 <Link className = "aboutus" to = "About"> 
                     <CgProfile/> About US    
                 </Link> 
+                <Link className = "search" to = "Search"> 
+                    <GiMagnifyingGlass/> Search    
+                </Link> 
                 
             </ul>
                
-                <Link className = "search" to = "Search" >
-                    <form>
-                        
-                        <input type ="text" placeholder = "Search ....." />
-                        <i className="Icon"><GiMagnifyingGlass/></i>
-                    </form>
-                        
-                </Link>
+                
                
             </nav>
         );
@@ -44,3 +40,13 @@ export default Navbar;
 
 
 //<SearchBar />
+/*
+<Link className = "search" to = "Search" >
+                    <form>
+                        
+                        <input type ="text" placeholder = "Search ..." />
+                        <i className="Icon"><GiMagnifyingGlass/></i>
+                    </form>
+                        
+                </Link>
+                */

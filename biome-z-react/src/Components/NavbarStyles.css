@@ -66,6 +66,16 @@ a {
     padding-top: 20px;
     padding-bottom: 20px;
 }
+
+.search:hover {
+    background: rgb(240, 236, 236);
+    transition: all 0.2s ease-in-out;
+    border-radius: 6px;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
 input {
     height: 50px;
     border-radius: 8px;
@@ -76,14 +86,14 @@ input {
     
 }
 
+
+
+
 .search {
-    display: flex;
+    padding-right: 20pt;
     justify-content: space-between;
-    
+    color:rgba(140, 190, 194, 0.815);
 }
-
-
-
 
 .home {
     padding-right: 20pt;
