@@ -11,7 +11,11 @@ function Search() {
 
   useEffect(() => {
       async function fetchData() {
-          const response = await fetch('http://localhost:5000/records');
+          const response = await fetch('http://localhost:5000/records',
+            { 
+                params: {searchTerm: this.target.value} 
+            }
+          );
           const json = await response.json();
           setData(json);
       }
@@ -19,7 +23,14 @@ function Search() {
   }, []);
 
   const handleSearchChange = event => {
-      setSearchTerm(event.target.value);
+      setSearchTerm({
+        query: event.target.value
+    
+    }), () => {
+        if (event.target.value) {
+            this.useEffect()
+        }
+    }
   };
 
   const filteredData = data.filter(row =>
