@@ -11,7 +11,7 @@ function Search() {
 
   useEffect(() => {
       async function fetchData() {
-          const response = await fetch('http://localhost:5000/records',
+          const response = await fetch('http://localhost:5000/post-json',
             { 
                 params: {searchTerm: this.target.value} 
             }
@@ -22,8 +22,8 @@ function Search() {
       fetchData();
   }, []);
 
-  const handleSearchChange = event => {
-      setSearchTerm({
+  const handleSearchChange = event => (
+      setSearchTerm ({
         query: event.target.value
     
     }), () => {
@@ -31,7 +31,7 @@ function Search() {
             this.useEffect()
         }
     }
-  };
+  );
 
   const filteredData = data.filter(row =>
       (row.articleName.toLowerCase().includes(searchTerm.toLowerCase()) || row.authorName.toLowerCase().includes(searchTerm.toLowerCase()))
