@@ -23,17 +23,17 @@ const apiResponse = [
   {
     sets: ['Bio', 'Social'],
     value: 25,
-    name: 'Bio_Social',
+    name: 'Bio Social',
   },
   {
     sets: ['Bio', 'Psychological'],
     value: 25,
-    name: 'Bio_Psych',
+    name: 'Bio Psych',
   },
   {
     sets: ['Social', 'Psychological'],
     value: 25,
-    name: 'Social_Psych',
+    name: 'Social Psych',
   },
   {
     sets: ['Social', 'Psychological', 'Bio'],
