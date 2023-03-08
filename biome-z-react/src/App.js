@@ -8,26 +8,26 @@ import Footer from "./Components/Footer";
 import { Route, Routes } from "react-router-dom"
 export default function App()
 {
-  // localhost:3000/
 
-  // TEST //
   return(
     
     <div  className="divScroll" >
       <Navbar />
-      <Footer/>
       <div className="Navbar"> </div>
       
       <div className="container">
-      <Routes>
+        <Routes>
           <Route path="/" element={<HomePage />}/>
           <Route path="/Home" element={<HomePage />}/>
           <Route path="/About" element={<AboutPage />}/>
           <Route path="/Explore" element={<ExplorePage />}/>
           <Route path="/Search" element={<SearchPage />}/>
-      </Routes>
-   
+        </Routes>
       </div>
+
+     <div className="footer">
+          <Footer />
+     </div>
     </div>
-  );  
+    );  
 }

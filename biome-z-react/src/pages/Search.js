@@ -1,75 +1,79 @@
-import React, { useState, useEffect } from 'react';
 import "./Search.css";
-//import searchInput from "../Components/Navbar";
+import React, { useState, useEffect } from 'react';
 
-// Example of a data array that
-// you might receive from an API
-/*
-const data = [
-    { title: "Holistic Health", author: "Hugh ablndy", abstract: "How acupuncture and meditation cure cancer" },
-    { title: "Social Drama related to stess", author: "QWERTY", abstract: "The attention grabbing abstract" },
-    { title: "Something intresting about Psychology", author: "TGIF", abstract: "The FitnessGram PACER Test is a multistage aerobic capacity test that progressively gets more difficult as it continues "},
-  ]
-*/
-function Search() {
-    
-  const [data, setData] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
+function SearchPage() {
+    const [query, setQuery] = useState('');
+    const [results, setResults] = useState([]);
 
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await fetch('http://localhost:5000/post-json', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ q: query })
+            });
+            const data = await response.json();
+            setResults(data);
+        };
 
-  useEffect(() => {
-      async function fetchData() {
-          const response = await fetch('http://localhost:5000/records');
-          const json = await response.json();
-          setData(json);
-      }
-      fetchData();
-  }, []);
+        if (query !== '') {
+            fetchData();
+        }
+    }, [query]);
 
-  const handleSearchChange = event => {
-      setSearchTerm(event.target.value);
-  };
+    const handleInputChange = (event) => {
+        setQuery(event.target.value);
+    };
 
-  const filteredData = data.filter(row =>
-      (row.articleName.toLowerCase().includes(searchTerm.toLowerCase()) || row.authorName.toLowerCase().includes(searchTerm.toLowerCase()))
-  );
-    
-  return (
-      <>
-        <div className="abc" >
-          <form>
-              <label htmlFor="search">Search:</label>
-              <input
-                  type="text"
-                  id="Search2"
-                  value={searchTerm }
-                  onChange={handleSearchChange}
-              />
-          </form>
+    const handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            setQuery(event.target.value);
+        }
+    };
+
+    return (
+        <div className="container2">
+            <div className="searchBar">
+                <input className="searchText"
+                    type="text"
+                    value={query}
+                    onChange={handleInputChange}
+                    onKeyPress={handleKeyPress}
+                    />
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Publication Year</th>
+                        <th>Author</th>
+                        <th>Title</th>
+                        <th>Publication Title</th>
+                        <th>ISSN</th>
+                        <th>DOI</th>
+                        <th>URL</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {results.map((result) => (
+                        <tr key={result._id}>
+                            <td>{result.pubYear}</td>
+                            <td>{result.author}</td>
+                            <td>{result.title}</td>
+                            <td>{result.pubTitle}</td>
+                            <td>{result.issn}</td>
+                            <td>{result.doi}</td>
+                            <td><a href={result.url} target="_blank">Link</a></td>
+                            <td>{result.date}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+
         </div>
-        <div className="container2" >
-          <table>
-              <thead>
-                  <tr>
-                      <th>Name</th>
-                      <th>Author</th>
-                      <th>DOI</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  {filteredData.map(row => (
-                      <tr key={row.id}>
-                          <td>{row.articleName}</td>
-                          <td>{row.authorName}</td>
-                          <td>{row.doi}</td>
-                      </tr>
-                  ))}
-              </tbody>
-          </table>
-          </div>
-      </>
-  );
+    );
 }
 
-
-export default Search
+export default SearchPage;

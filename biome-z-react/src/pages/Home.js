@@ -1,23 +1,30 @@
 import "./Home.css";
 import React from "react";
 function HomePage() {
-    return <div className = "Home-page">
+    return (
+        <div className="home-page">
+            <header className="header">
+                <h1 className="header-title">WELCOME TO THE BIOME-Z DATABASE.</h1>
+            </header>
 
-        <div classname = "containers ">
-           < div className="text">
-                <h1 className = "Title">Welcome to the Biome- Z Database.</h1>
-                <p > Biome-Z (Biopsychosocial Index of Microbiome Ecologies - Zotero) is an interactive research tool that categorizes information using the BPSE Framework.
-                    Explore the database <a className = "link" href = "/Explore"> here </a> or use the search bar to find a specific category or article. The BPSE Framework sorts specific research data into meaningful subtopics (Biological, Psychological and Social Evironments), making it simple to find obscure articles.
-                    <br></br> <h1 className="Web-attributes"> About the database: </h1> <p className = "attributes"> The database characterizes and classifies different scientific articles from a massive number of sources and authors. </p>
+            <main className="main">
+                <p className="large-text"> OVERVIEW </p>
+                <p className="small-text"> BIOME-z (pronounced "biomes") is a pilot project to index microbiome-related scientific literature from across the disciplines (representing humans, animals, natural and built environments), organized in a biopsychosocial ecological framework (Maier & al'Absi, 2017). The aim is to facilitate interdisciplinary research on the microbiome and health that reflects the broad ecological/interconnected nature of microbiomes. </p>
+            </main>
+
+            <main className="main">
+                <p className="large-text"> FEATURES </p>
+                <p className="small-text">
+                <ul>
+                    <li> The database characterizes and classifies different scientific articles from a massive number of sources and authors, including Google Scholar and PubMed. </li>
+                    <li> Precise search tags allow for simple, quick queries - saving time and resources for the important research. </li>
+                    <li> Machine learning algorithms automatically and seamlessly categorize new data into the database. </li>
+                    </ul>
                 </p>
-                <h1 className="Up-F">Upcoming Features: </h1>
-                <text>
-                    <p>Improved performance of classifying literature into BPSE framework. <br></br> Machine learning will be used to automate the process of classifying literature from public literature databases to the BIOME-Z database.</p>
-                </text>
-            </div> 
+            </main>
+
         </div>
-    </div>
-    
+    );
 }
 
 export default HomePage

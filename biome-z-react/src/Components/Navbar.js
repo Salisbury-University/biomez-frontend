@@ -1,46 +1,45 @@
-import "./NavbarStyles.css";
-import { FaHome } from 'react-icons/fa';
-import { ImEarth } from "react-icons/im";
-import { CgProfile } from 'react-icons/cg';
-import {GiMagnifyingGlass} from 'react-icons/gi';
+import React from 'react';
+import './NavbarStyles.css';
+import websiteIcon from '../Images/BIOMEZ ICON (White).png';
 import { Link } from "react-router-dom"
 
+function Navbar() {
+    return (
 
-function Navbar () {
-       
-        return(
-            <nav className = "NavbarItems" > 
-                <h1 className = "title1"> BIOME-Z <br></br> DATABASE </h1>  
-                
-            <ul className = "nav-menu" >
-                
-                <Link className = "home" to = "Home"> 
-                    <FaHome/> Home    
-                </Link> 
-                <Link className = "explore" to = "Explore"> 
-                    <ImEarth /> Explore    
-                </Link>        
-                <Link className = "aboutus" to = "About"> 
-                    <CgProfile/> About US    
-                </Link> 
-                
+        <nav className="navbar">
+
+            <ul className="navbar-nav">
+                <li className="nav-item">
+                    <div className="webIcon">
+                        <img src={websiteIcon} alt="Icon" style={{ position: 'absolute', top: -6, left: 10, width: 120, height: 120 }} />
+                    </div>
+                </li>
+                <li className="nav-item">
+                    <a href="Home" className="nav-link">
+                        HOME
+                    </a>
+                </li>
+                <li className="nav-item">
+                    <a href="Explore" className="nav-link">
+                        EXPLORE
+                     </a>
+                </li>
+                <li className="nav-item">
+                    <a href="About" className="nav-link">
+                        ABOUT
+                    </a>
+                </li>
+                <li className="nav-item">
+                    <Link className="search" to="Search" >
+                        <form>
+                            <input type="text" placeholder="  Search the database" />
+                        </form>
+
+                    </Link>
+                </li>
             </ul>
-               
-                <Link className = "search" to = "Search" >
-                    <form>
-                        
-                        <input type ="text" placeholder = "Search ....." />
-                        <i className="Icon"><GiMagnifyingGlass/></i>
-                    </form>
-                        
-                </Link>
-               
-            </nav>
-        );
-    }
-
+        </nav>
+    );
+}
 
 export default Navbar;
-
-
-//<SearchBar />

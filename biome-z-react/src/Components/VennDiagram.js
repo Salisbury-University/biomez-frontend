@@ -23,17 +23,17 @@ const apiResponse = [
   {
     sets: ['Bio', 'Social'],
     value: 25,
-    name: 'Bio_Social',
+    name: 'Bio Social',
   },
   {
     sets: ['Bio', 'Psychological'],
     value: 25,
-    name: 'Bio_Psych',
+    name: 'Bio Psych',
   },
   {
     sets: ['Social', 'Psychological'],
     value: 25,
-    name: 'Social_Psych',
+    name: 'Social Psych',
   },
   {
     sets: ['Social', 'Psychological', 'Bio'],
@@ -57,18 +57,21 @@ export default class VennDiagram extends Component {
   render() {
     let vennOptions = {
       title: {
-        text: 'biopsychosocial (BPS) model',
+        text: 'EXPLORE',
       },
       chart: {
-        backgroundColor: '#fff',
+          backgroundColor: '#E4FFFE',
         borderWidth: 2,
-        borderColor: '#fff',
+        borderColor: '#000000',
         borderRadius: 20,
         className: '',
         animation: true,
         height: 700,
-        width: 1500,
-      },
+        width: 1000,
+        },
+        circles: {
+            borderWidth: 200
+            },
       series: [
         {
           type: 'venn',

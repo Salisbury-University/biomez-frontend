@@ -5,10 +5,8 @@ import VennDiagram from '../Components/VennDiagram'
 import "./Explore.css";
 function ExplorePage() {
     return (
-    <div className="container" >
-        <h1>
-            <VennDiagram />
-        </h1>
+    <div className="venn-box" >
+       <VennDiagram />
     </div>
     )
 }

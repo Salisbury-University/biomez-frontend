@@ -1,13 +1,15 @@
 # biomez-frontend
 
-This is the code repository for the front end of the BIOMZ website
+This is the code repository for the front end of the BIOME-Z website, developed by Sam Blaxberg, Ethan White, Nick Lautieri, and Samuel Ghanoui-David.
 
-This website is created with React and to run it React is needed
+Installation Instructions:
+=========================
+1. Clone the repository.
+2. In your developer console, navigate to /biome-z-react/.
+3. Use npm start to launch the development server.
 
-By Samuel David and Ethan White
+Required Dependencies:
+react-router-dom
+highcharts-react-official
+highcharts
 
-TO run code, 
-1.) clone code
-2.) Start file using react
-3.) open web browser and go to local host site
-4.) have fun exploring this website
