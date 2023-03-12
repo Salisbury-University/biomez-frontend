@@ -33,6 +33,18 @@ function SearchPage() {
         }
     };
 
+    const downloadRdf = async (result) => {
+        const response = await fetch(`http://localhost:5000/rdf/${result._id}`);
+        const data = await response.text();
+
+        const element = document.createElement("a");
+        const file = new Blob([data], { type: "application/rdf+xml" });
+        element.href = URL.createObjectURL(file);
+        element.download = `${result.title}.rdf`;
+        document.body.appendChild(element);
+        element.click();
+    };
+
     return (
         <div className="container2">
             <div className="searchBar">
@@ -41,7 +53,7 @@ function SearchPage() {
                     value={query}
                     onChange={handleInputChange}
                     onKeyPress={handleKeyPress}
-                    />
+                />
             </div>
             <table>
                 <thead>
@@ -54,6 +66,7 @@ function SearchPage() {
                         <th>DOI</th>
                         <th>URL</th>
                         <th>Date</th>
+                        <th>Download</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -67,6 +80,7 @@ function SearchPage() {
                             <td>{result.doi}</td>
                             <td><a href={result.url} target="_blank">Link</a></td>
                             <td>{result.date}</td>
+                            <td><button onClick={() => downloadRdf(result)}>Download RDF</button></td>
                         </tr>
                     ))}
                 </tbody>
