@@ -80,7 +80,7 @@ function SearchPage() {
                             <td>{result.doi}</td>
                             <td><a href={result.url} target="_blank">Link</a></td>
                             <td>{result.date}</td>
-                            <td><button onClick={() => downloadRdf(result)}>Download RDF</button></td>
+                            <td><button className="download-button" onClick={() => downloadRdf(result)}>Download</button></td>
                         </tr>
                     ))}
                 </tbody>

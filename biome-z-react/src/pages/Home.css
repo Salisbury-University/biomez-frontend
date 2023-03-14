@@ -85,3 +85,14 @@ li {
     color: #ffffff;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+
+
+.explore-section {
+    padding-bottom: 20px;
+}
+
+.explore-icon {
+    width: 15%;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}

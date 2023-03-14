@@ -25,6 +25,11 @@ function Navbar() {
                      </a>
                 </li>
                 <li className="nav-item">
+                    <a href="Search" className="nav-link">
+                        DATABASE
+                     </a>
+                </li>
+                <li className="nav-item">
                     <a href="About" className="nav-link">
                         ABOUT
                     </a>
