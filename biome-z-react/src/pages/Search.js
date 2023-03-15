@@ -78,7 +78,13 @@ function SearchPage() {
                             <td>{result.pubTitle}</td>
                             <td>{result.issn}</td>
                             <td>{result.doi}</td>
-                            <td><a href={result.url} target="_blank">Link</a></td>
+                            <td>
+                                {result.url ?
+                                    <a href={result.url} target="_blank">Link</a> :
+                                    <span>NO LINK FOUND</span>
+                                }
+                            </td>
+
                             <td>{result.date}</td>
                             <td><button className="download-button" onClick={() => downloadRdf(result)}>Download</button></td>
                         </tr>
