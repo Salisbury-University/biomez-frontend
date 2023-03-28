@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 function SearchPage() {
     const [query, setQuery] = useState('');
     const [results, setResults] = useState([]);
+    const [checkedItems, setCheckedItems] = useState(new Map());
 
     useEffect(() => {
         const fetchData = async () => {
@@ -33,6 +34,26 @@ function SearchPage() {
         }
     };
 
+    const handleCheckboxChange = (event, result) => {
+        const item = event.target.name;
+        const isChecked = event.target.checked;
+        setCheckedItems(prevState => prevState.set(item, isChecked));
+    };
+
+    const handleDownloadChecked = () => {
+        const itemsToDownload = [];
+        for (const [key, value] of checkedItems.entries()) {
+            if (value) {
+                itemsToDownload.push(key);
+            }
+        }
+        if (itemsToDownload.length > 0) {
+            for (const id of itemsToDownload) {
+                downloadRdf(results.find(result => result._id === id));
+            }
+        }
+    };
+
     const downloadRdf = async (result) => {
         const response = await fetch(`http://localhost:5000/rdf/${result._id}`);
         const data = await response.text();
@@ -55,9 +76,11 @@ function SearchPage() {
                     onKeyPress={handleKeyPress}
                 />
             </div>
+            <button className="download-button-top" onClick={handleDownloadChecked}>Download Selected</button>
             <table>
                 <thead>
                     <tr>
+                        <th></th>
                         <th>Publication Year</th>
                         <th>Author</th>
                         <th>Title</th>
@@ -72,6 +95,9 @@ function SearchPage() {
                 <tbody>
                     {results.map((result) => (
                         <tr key={result._id}>
+                            <td>
+                                <input type="checkbox" name={result._id} checked={checkedItems.get(result._id)} onChange={(e) => handleCheckboxChange(e, result)} />
+                            </td>
                             <td>{result.pubYear}</td>
                             <td>{result.author}</td>
                             <td>{result.title}</td>
