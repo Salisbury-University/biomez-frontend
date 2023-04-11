@@ -5,6 +5,7 @@ function SearchPage() {
     const [query, setQuery] = useState('');
     const [results, setResults] = useState([]);
     const [checkedItems, setCheckedItems] = useState(new Map());
+    const [selectAll, setSelectAll] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -66,6 +67,46 @@ function SearchPage() {
         element.click();
     };
 
+    const handleSelectAll = () => {
+        setSelectAll(true);
+        const newCheckedItems = new Map();
+        results.forEach(result => newCheckedItems.set(result._id, true));
+        setCheckedItems(newCheckedItems);
+    };
+
+    const handleDeselectAll = () => {
+        setSelectAll(false);
+        const newCheckedItems = new Map();
+        results.forEach(result => newCheckedItems.set(result._id, false));
+        setCheckedItems(newCheckedItems);
+    };
+
+    const handleDownloadSelectedSingle = async () => {
+        const itemsToDownload = [];
+        for (const [key, value] of checkedItems.entries()) {
+            if (value) {
+                itemsToDownload.push(key);
+            }
+        }
+        if (itemsToDownload.length > 0) {
+            const response = await fetch('http://localhost:5000/rdf/selected', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ ids: itemsToDownload })
+            });
+            const data = await response.text();
+
+            const element = document.createElement("a");
+            const file = new Blob([data], { type: "application/json" });
+            element.href = URL.createObjectURL(file);
+            element.download = `SelectedFiles.json`;
+            document.body.appendChild(element);
+            element.click();
+        }
+    };
+
     return (
         <div className="container2">
             <div className="searchBar">
@@ -76,7 +117,10 @@ function SearchPage() {
                     onKeyPress={handleKeyPress}
                 />
             </div>
-            <button className="download-button-top" onClick={handleDownloadChecked}>Download Selected</button>
+                <button className="download-button-top" onClick={handleDownloadChecked}>Download Selected</button>
+                <button className="download-button-top" onClick={handleDownloadSelectedSingle}>Download Selected (Single File)</button>
+                <button className="select-deselect-button" onClick={handleSelectAll}>Select All</button>
+                <button className="select-deselect-button" onClick={handleDeselectAll}>Deselect All</button>
             <table>
                 <thead>
                     <tr>
@@ -110,14 +154,12 @@ function SearchPage() {
                                     <span>NO LINK FOUND</span>
                                 }
                             </td>
-
                             <td>{result.date}</td>
                             <td><button className="download-button" onClick={() => downloadRdf(result)}>Download</button></td>
                         </tr>
                     ))}
                 </tbody>
             </table>
-
         </div>
     );
 }
