@@ -1,11 +1,12 @@
 import "./Search.css";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 
 function SearchPage() {
-    const [query, setQuery] = useState('');
+    const [query, setQuery] = useState('Search the database...');
     const [results, setResults] = useState([]);
     const [checkedItems, setCheckedItems] = useState(new Map());
     const [selectAll, setSelectAll] = useState(false);
+    const [sortBy, setSortBy] = useState('Relevance');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -25,6 +26,11 @@ function SearchPage() {
         }
     }, [query]);
 
+    useEffect(() => {
+        // clear query
+        setQuery("");
+    }, []);
+
     const handleInputChange = (event) => {
         setQuery(event.target.value);
     };
@@ -35,11 +41,11 @@ function SearchPage() {
         }
     };
 
-    const handleCheckboxChange = (event, result) => {
+    const handleCheckboxChange = useCallback((event, result) => {
         const item = event.target.name;
         const isChecked = event.target.checked;
-        setCheckedItems(prevState => prevState.set(item, isChecked));
-    };
+        setCheckedItems((prevState) => new Map(prevState).set(item, isChecked));
+    }, []);
 
     const handleDownloadChecked = () => {
         const itemsToDownload = [];
@@ -67,19 +73,19 @@ function SearchPage() {
         element.click();
     };
 
-    const handleSelectAll = () => {
+    const handleSelectAll = useCallback(() => {
         setSelectAll(true);
         const newCheckedItems = new Map();
-        results.forEach(result => newCheckedItems.set(result._id, true));
+        results.forEach((result) => newCheckedItems.set(result._id, true));
         setCheckedItems(newCheckedItems);
-    };
+    }, [results]);
 
-    const handleDeselectAll = () => {
+    const handleDeselectAll = useCallback(() => {
         setSelectAll(false);
         const newCheckedItems = new Map();
-        results.forEach(result => newCheckedItems.set(result._id, false));
+        results.forEach((result) => newCheckedItems.set(result._id, false));
         setCheckedItems(newCheckedItems);
-    };
+    }, [results]);
 
     const handleDownloadSelectedSingle = async () => {
         const itemsToDownload = [];
@@ -107,6 +113,23 @@ function SearchPage() {
         }
     };
 
+    const handleSortByChange = (event) => {
+        setSortBy(event.target.value);
+    };
+
+    const sortedResults = useMemo(() => {
+        switch (sortBy) {
+            case 'Title':
+                return results.slice().sort((a, b) => a.title.localeCompare(b.title));
+            case 'Author':
+                return results.slice().sort((a, b) => a.author.localeCompare(b.author));
+            case 'PublicationYear':
+                return results.slice().sort((a, b) => a.pubYear - b.pubYear);
+            default:
+                return results;
+        }
+    }, [results, sortBy]);
+
     return (
         <div className="container2">
             <div className="searchBar">
@@ -121,6 +144,13 @@ function SearchPage() {
                 <button className="download-button-top" onClick={handleDownloadSelectedSingle}>Download Selected (Single File)</button>
                 <button className="select-deselect-button" onClick={handleSelectAll}>Select All</button>
                 <button className="select-deselect-button" onClick={handleDeselectAll}>Deselect All</button>
+                <select className="download-button-top" value={sortBy} onChange={handleSortByChange}>
+                     <option value="Relevance">Relevance</option>
+                    <option value="Title">Title</option>
+                    <option value="Author">Author</option>
+                    <option value="PublicationYear">Publication Year</option>
+                 </select>
+
             <table>
                 <thead>
                     <tr>
@@ -137,7 +167,7 @@ function SearchPage() {
                     </tr>
                 </thead>
                 <tbody>
-                    {results.map((result) => (
+                    {sortedResults.map((result) => (
                         <tr key={result._id}>
                             <td>
                                 <input type="checkbox" name={result._id} checked={checkedItems.get(result._id)} onChange={(e) => handleCheckboxChange(e, result)} />
