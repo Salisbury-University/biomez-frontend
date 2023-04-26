@@ -1,5 +1,6 @@
 import "./Search.css";
 import React, { useState, useEffect, useCallback, useMemo } from "react";
+import { useLocation } from 'react-router-dom';
 
 function SearchPage() {
     const [query, setQuery] = useState('Search the database...');
@@ -7,6 +8,14 @@ function SearchPage() {
     const [checkedItems, setCheckedItems] = useState(new Map());
     const [selectAll, setSelectAll] = useState(false);
     const [sortBy, setSortBy] = useState('Relevance');
+
+    const location = useLocation();
+
+    useEffect(() => {
+        const queryParams = new URLSearchParams(location.search);
+        const q = queryParams.get('q');
+        setQuery(q || '');
+    }, [location.search]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -26,10 +35,10 @@ function SearchPage() {
         }
     }, [query]);
 
-    useEffect(() => {
+    //useEffect(() => {
         // clear query
-        setQuery("");
-    }, []);
+        //setQuery("");
+    //}, []);
 
     const handleInputChange = (event) => {
         setQuery(event.target.value);
@@ -155,14 +164,11 @@ function SearchPage() {
                 <thead>
                     <tr>
                         <th></th>
-                        <th>Publication Year</th>
-                        <th>Author</th>
+                        <th>Year</th>
                         <th>Title</th>
                         <th>Publication Title</th>
-                        <th>ISSN</th>
-                        <th>DOI</th>
+                        <th>Author</th>
                         <th>URL</th>
-                        <th>Date</th>
                         <th>Download</th>
                     </tr>
                 </thead>
@@ -173,18 +179,15 @@ function SearchPage() {
                                 <input type="checkbox" name={result._id} checked={checkedItems.get(result._id)} onChange={(e) => handleCheckboxChange(e, result)} />
                             </td>
                             <td>{result.pubYear}</td>
-                            <td>{result.author}</td>
-                            <td>{result.title}</td>
-                            <td>{result.pubTitle}</td>
-                            <td>{result.issn}</td>
-                            <td>{result.doi}</td>
+                            <td title={result.title}>{result.title}</td>
+                            <td title={result.pubTitle}>{result.pubTitle}</td>
+                            <td title={result.author}>{result.author}</td>
                             <td>
                                 {result.url ?
                                     <a href={result.url} target="_blank">Link</a> :
                                     <span>NO LINK FOUND</span>
                                 }
                             </td>
-                            <td>{result.date}</td>
                             <td><button className="download-button" onClick={() => downloadRdf(result)}>Download</button></td>
                         </tr>
                     ))}
