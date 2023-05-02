@@ -1,5 +1,8 @@
 import "./Home.css";
 import React from "react";
+import exploreIcon from "../Images/VENN.png";
+import databaseIcon from "../Images/DATABASE.png";
+
 function HomePage() {
     return (
         <div className="home-page">
@@ -23,6 +26,18 @@ function HomePage() {
                 </p>
             </main>
 
+
+            <main className="main showcase">
+                <p className="large-text"> EXPLORE </p>
+                <p className="small-text"> Use our Venn Diagram Explorer to search for articles, categories and tags, or quickly check our current article counts for each category combination. </p>
+                <a href="/Explore">
+                    <img
+                        className="explore-icon"
+                        src={exploreIcon}
+                        alt="Venn Diagram Icon"
+                    />
+                </a>
+            </main>
         </div>
     );
 }

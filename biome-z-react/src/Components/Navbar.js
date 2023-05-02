@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './NavbarStyles.css';
 import websiteIcon from '../Images/BIOMEZ ICON (White).png';
-import { Link } from "react-router-dom"
 
 function Navbar() {
+    const [query, setQuery] = useState('');
+
+    const handleSearch = (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            window.location.href = `/Search?q=${query}`;
+        }
+    };
+
     return (
-
         <nav className="navbar">
-
             <ul className="navbar-nav">
                 <li className="nav-item">
                     <div className="webIcon">
@@ -15,27 +22,27 @@ function Navbar() {
                     </div>
                 </li>
                 <li className="nav-item">
-                    <a href="Home" className="nav-link">
+                    <Link to="/" className="nav-link">
                         HOME
-                    </a>
+          </Link>
                 </li>
                 <li className="nav-item">
-                    <a href="Explore" className="nav-link">
+                    <Link to="/explore" className="nav-link">
                         EXPLORE
-                     </a>
+          </Link>
                 </li>
                 <li className="nav-item">
-                    <a href="About" className="nav-link">
+                    <Link to="/Search" className="nav-link">
+                        DATABASE
+          </Link>
+                </li>
+                <li className="nav-item">
+                    <Link to="/about" className="nav-link">
                         ABOUT
-                    </a>
+          </Link>
                 </li>
-                <li className="nav-item">
-                    <Link className="search" to="Search" >
-                        <form>
-                            <input type="text" placeholder="  Search the database" />
-                        </form>
-
-                    </Link>
+                <li className="nav-item-search">
+                    <input type="text" placeholder="  Search the database" value={query} onChange={(e) => setQuery(e.target.value)} onKeyPress={handleSearch} />
                 </li>
             </ul>
         </nav>
