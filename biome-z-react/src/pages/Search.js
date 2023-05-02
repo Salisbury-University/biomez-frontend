@@ -6,8 +6,11 @@ function SearchPage() {
     const [query, setQuery] = useState('Search the database...');
     const [results, setResults] = useState([]);
     const [checkedItems, setCheckedItems] = useState(new Map());
-    const [selectAll, setSelectAll] = useState(false);
+    const [, setSelectAll] = useState(false);
     const [sortBy, setSortBy] = useState('Relevance');
+    const [page, setPage] = useState(1);
+    const [perPage, setPerPage] = useState(10);
+
 
     const location = useLocation();
 
@@ -34,11 +37,6 @@ function SearchPage() {
             fetchData();
         }
     }, [query]);
-
-    //useEffect(() => {
-        // clear query
-        //setQuery("");
-    //}, []);
 
     const handleInputChange = (event) => {
         setQuery(event.target.value);
@@ -139,6 +137,10 @@ function SearchPage() {
         }
     }, [results, sortBy]);
 
+    const startIndex = (page - 1) * perPage;
+    const endIndex = startIndex + perPage;
+    const pageResults = sortedResults.slice(startIndex, endIndex);
+
     return (
         <div className="container2">
             <div className="searchBar">
@@ -149,6 +151,7 @@ function SearchPage() {
                     onKeyPress={handleKeyPress}
                 />
             </div>
+            <div>
                 <button className="download-button-top" onClick={handleDownloadChecked}>Download Selected</button>
                 <button className="download-button-top" onClick={handleDownloadSelectedSingle}>Download Selected (Single File)</button>
                 <button className="select-deselect-button" onClick={handleSelectAll}>Select All</button>
@@ -159,8 +162,24 @@ function SearchPage() {
                     <option value="Author">Author</option>
                     <option value="PublicationYear">Publication Year</option>
                  </select>
+            </div>
+            <div className="paginationContainer">
+                <button className="pagination" disabled={page === 1} onClick={() => setPage(page - 1)}>Prev</button>
+                <span className="paginationText" >Page {page}</span>
+                <button className="pagination" disabled={page * perPage >= sortedResults.length} onClick={() => setPage(page + 1)}>Next</button>
 
-            <table>
+                <select className="pagination" value={perPage} onChange={(e) => setPerPage(Number(e.target.value))}>
+                    <option value={5}>5 per page</option>
+                    <option value={10}>10 per page</option>
+                    <option value={20}>20 per page</option>
+                    <option value={50}>50 per page</option>
+                </select>
+
+            </div>
+
+
+
+            <table className = "searchResultsTable">
                 <thead>
                     <tr>
                         <th></th>
@@ -173,7 +192,7 @@ function SearchPage() {
                     </tr>
                 </thead>
                 <tbody>
-                    {sortedResults.map((result) => (
+                    {pageResults.map((result) => (
                         <tr key={result._id}>
                             <td>
                                 <input type="checkbox" name={result._id} checked={checkedItems.get(result._id)} onChange={(e) => handleCheckboxChange(e, result)} />
@@ -184,7 +203,7 @@ function SearchPage() {
                             <td title={result.author}>{result.author}</td>
                             <td>
                                 {result.url ?
-                                    <a href={result.url} target="_blank">Link</a> :
+                                    <a href={result.url} target="_blank" rel="noreferrer">Link</a> :
                                     <span>NO LINK FOUND</span>
                                 }
                             </td>

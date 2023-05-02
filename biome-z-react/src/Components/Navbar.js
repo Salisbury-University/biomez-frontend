@@ -41,7 +41,7 @@ function Navbar() {
                         ABOUT
           </Link>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item-search">
                     <input type="text" placeholder="  Search the database" value={query} onChange={(e) => setQuery(e.target.value)} onKeyPress={handleSearch} />
                 </li>
             </ul>

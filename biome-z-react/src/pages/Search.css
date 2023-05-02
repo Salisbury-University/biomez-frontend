@@ -34,6 +34,35 @@ table {
     overflow-x: auto; /* enable horizontal scrolling */
 }
 
+.pagination {
+    background-color: #0e63c1;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.paginationContainer
+{
+    padding-bottom: 10px;
+}
+
+.paginationText {
+    font-weight: 900;
+    padding: 10px;
+}
+
+.searchResultsTable
+{
+    height: 10px;
+}
+
 th,
 td {
     padding: 10px;
@@ -126,7 +155,7 @@ th {
     background-color: #0e63c1;
     border: none;
     color: white;
-    padding: 8px 16px;
+    padding: 10px 16px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -134,7 +163,7 @@ th {
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 5px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .select-deselect-button {
@@ -149,5 +178,5 @@ th {
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 5px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
